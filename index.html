@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cyber Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet"
+         href="https://fonts.googleapis.com/css?family=Roboto">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- color picker library -->
+  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+</head>
+
+<body>
+  <div id="landing">
+    <label for="garden">Garden Health</label><progress id="garden" value="80" max="100"></progress>
+    <div id="garden_vis" class="center"></div>
+    <h3>Tap BuffOne Card to Interact with the Garden</h3>
+    <button id="open_port">Open Serial Port</button>
+  </div>
+
+  <div id="user">
+    <h1>Welcome <span id="uname">Back Name</span>!
+    <h3 id="itsbeen"></h3>
+    <div id="options">
+    <div id="water" class="options"><h1>Water<br/>Garden</h1></div>
+    <div id="record" class="options"><h1>Record<br/>Data</h1></div>
+    </div>
+    <div class="buttons">
+      <button id="log_out">Log Out</button>
+    </div>
+  </div>
+
+  <div id="user_reg">
+    <h1>Welcome to CyberGarden!</h1>
+    <h3>Please enter your information below to register to use the display</h3>
+    <form>
+      <div id="#form-flex">
+      <label for="fname" class="inline_input">First name:</label>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="lname" class="inline_input">Last name:</label>
+      <input type="text" id="lname" name="lname"><br>
+      <label for="email" class="inline_input">Email:</label>
+      <input type="text" id="email" name="email"><br>
+    </div>
+      <label for="degree">What degree are you seeking at CU?</label><br>
+      <input type="radio" id="bachelor" name="degree" value="b">
+      <label for="bachelor">Bachelor's</label>
+      <input type="radio" id="master" name="degree" value="m">
+      <label for="master">Master's</label>
+      <input type="radio" id="doctor" name="degree" value="dr">
+      <label for="master">PhD</label>
+    </form>
+    <div class="buttons">
+      <button id="cancel_registration">Cancel</button>
+      <button id="continue_to_user">Continue</button>
+    </div>
+  </div>
+
+  <div id="w_garden">
+    Water Garden
+  </div>
+
+  <div id="r_data">
+    <h1>Place your hand on the sensor</h1>
+    <div id="sensorillustration" class="center"></div>
+    <div class="buttons">
+      <button id="cancel_sensor">Cancel</button>
+      <button id="hand_sensor">Continue</button>
+    </div>
+  </div>
+
+  <div id="r_inprogress">
+    <h1>Please keep hand on the sensor</h1>
+    <h3 id="inprogress">Reading in Progress</h3>
+    <div class="container">
+      <div class="heart"></div>
+  </div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="test">Test</button>
+    </div>
+  </div>
+
+  <div id="r_complete">
+    <h1>Reading is Complete!</h1>
+    <div id="sensorillustration" class="center"></div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="continue_to_assessment">Continue</button>
+    </div>
+  </div>
+
+  <div id="start_assessment">
+    <h1>Please complete a stress assessment</h1>
+    <div id="stress_assessment" class="center"></div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_question1">Continue</button>
+    </div>
+  </div>
+
+  <div id="question1">
+    <h1>How stressed have you felt over the last 24 hours?</h1>
+    <div class="wrap center">
+    <input type="range" min="1" max="100" value="50" class="slider" id="24_stress">
+    <div class="track">
+    <div class="track-inner"></div>
+    </div>
+    <div class="thumb"></div>
+    </div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_question2">Continue</button>
+    </div>
+  </div>
+
+  <div id="question2">
+    <h1>How stressed do you feel in this moment?</h1>
+    <div class="wrap center">
+    <input type="range" min="1" max="100" value="50" class="slider" id="24_stress">
+    <div class="track">
+    <div class="track-inner"></div>
+    </div>
+    <div class="thumb"></div>
+    </div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_question3">Continue</button>
+    </div>
+  </div>
+
+  <div id="question3">
+    <!-- low energy = stress effect -->
+    <h1>What is your energy level?</h1>
+    <div class="wrap center">
+    <input type="range" min="1" max="100" value="50" class="slider" id="energy">
+    <div class="track">
+    <div class="track-inner"></div>
+    </div>
+    <div class="thumb"></div>
+    </div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_question4">Continue</button>
+    </div>
+  </div>
+
+  <div id="question4">
+    <h1>Pick a color that represents your mood</h1>
+    <!-- <input type="color" value="#ff0000" id="colorpicker"> -->
+
+    <div id="picker"></div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_question5">Continue</button>
+    </div>
+  </div>
+
+  <div id="question5">
+    <!-- low affect = stress effect -->
+    <h1>Select the image that best represents your mood</h1>
+    <div id="pam">
+    
+    </div>
+    <div class="buttons">
+      <button class="cancel">Cancel</button>
+      <button id="to_complete">Continue</button>
+    </div>
+  </div>
+
+  <div id="assessment_complete">
+      <h1>Assessment Complete!</h1>
+      <div id="sensorillustration" class="center"></div>
+      <div class="buttons">
+        <button class="cancel">Cancel</button>
+        <button id="to_overview">Continue</button>
+      </div>
+  </div>
+
+  <div id="overview">
+    <h1>This is a composite of your biological and self-reported stress.</h1>
+
+    <h2>Adjust the slider to match how stressed you actually feel</h2>
+
+    <!-- <h2>The default value is a representation of your combined assessment and biological stress.</h2> -->
+    <div class="wrap center">
+      <input type="range" min="1" max="100" value="50" class="slider" id="energy">
+      <div class="track">
+      <div class="track-inner"></div>
+      </div>
+      <div class="thumb"></div>
+      </div>
+      <div class="buttons">
+        <button class="cancel">Cancel</button>
+        <button id="to_record_result">Continue</button>
+      </div>
+  </div>
+
+  
+  <div id="recorded_result">
+    <h1>Thank you for your participation, your result has been recorded</h1>
+
+    <!-- <h2>The default value is a representation of your combined assessment and biological stress.</h2> -->
+    <p>
+      Composite Stress Reported: <span id="percent_stress">70</span>% Stressed
+    </p>
+      <div class="buttons">
+        <button id="complete">Continue</button>
+      </div>
+  </div>
+
+  <script src="functions.js" type="text/javascript"></script>
+  <script src="index.js" ></script>
+</body>
+
+</html>

@@ -224,12 +224,12 @@ progress[value]::-webkit-progress-value{
   margin:auto;
   gap:5px;
   max-width:300px;
-  max-height:300px;
-  width:auto;
+  max-height:400px;
+  justify-items: center;
 }
 
 #pam img{
-  max-width:90px;
+  max-width:85px;
 }
 
 .selected_pam{

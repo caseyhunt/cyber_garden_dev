@@ -85,7 +85,7 @@ button:hover{
 }
 
 #garden_vis, #sensorillustration, #stress_assessment{
-  background-color: #D9D9D9;
+  
   width: 500px;
   height: 250px;
   margin-top: 20px;
@@ -223,7 +223,8 @@ progress[value]::-webkit-progress-value{
   grid-template-rows: repeat(4, 1fr);
   margin:auto;
   gap:5px;
-  max-width:360px;
+  max-width:300px;
+  max-height:300px;
   width:auto;
 }
 
